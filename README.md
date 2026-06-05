@@ -1,17 +1,23 @@
-# 🏆 Pokémon Vault (Brankas Pokémon) - Stellar Soroban
+# 🏆 Pokémon Vault (Brankas Pokémon) 
 
-## Description
-A simple smart contract deployed on the Stellar Testnet to track the inventory of Pokémon cards obtained from booster packs. Built for the Build on Stellar Bootcamp.
+![Stellar Soroban](https://img.shields.io/badge/Stellar-Soroban-black?style=for-the-badge&logo=stellar)
+![Rust](https://img.shields.io/badge/Rust-Programming-orange?style=for-the-badge&logo=rust)
 
-## Features
-- `tambah_kartu`: Add the number of newly pulled cards to the vault.
-- `lihat_isi`: Check the total number of cards currently stored in the vault.
+## 📌 Project Overview
+**Pokémon Vault** is a unique decentralized application (dApp) built on the Stellar network using Soroban Smart Contracts. It serves as a secure, immutable ledger for Pokémon TCG collectors to track their booster pack pulls. 
 
-## Smart Contract Details
+## 🔗 Live Demo
+**Website Aplikasi (Vercel):** [KLIK DI SINI UNTUK BUKA](https://brankas-pokemon-stellar.vercel.app/)
+
+## ⚙️ Core Smart Contract Features
+- `tambah_kartu`: Add the number of newly pulled cards to the decentralized vault.
+- `lihat_isi`: Retrieve the exact total number of cards currently stored.
+
+## 🚀 Deployment Details
 - **Network:** Stellar Testnet
 - **Contract ID:** CCHMKL4BC7XA6GRCJJNG6BKHZBV4GB342LJSBLFW2D63I77FLEVIG27B
 
 ## Frontend Screenshot
-<img width="1234" height="739" alt="image" src="https://github.com/user-attachments/assets/11f7710c-d466-453d-925a-3a191ca0df4e" />
-<img width="1062" height="786" alt="image" src="https://github.com/user-attachments/assets/5f43cc96-c692-42b7-a5ce-62d7703441b3" />
-<img width="1179" height="784" alt="image" src="https://github.com/user-attachments/assets/a7d4b396-1ea7-4f07-b9e7-c52d3e55fb5c" />
+<img width="916" height="882" alt="image" src="https://github.com/user-attachments/assets/06db514d-17e2-4502-9799-cb307e6b1363" />
+<img width="961" height="850" alt="image" src="https://github.com/user-attachments/assets/5eb7ee45-f78f-4a11-81f5-fabcf17fa6b3" />
+
