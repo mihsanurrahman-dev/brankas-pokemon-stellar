@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brankas Pokémon Testnet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: #16213e;
+            padding: 40px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 2px solid #0f3460;
+        }
+
+        h1 {
+            color: #e94560;
+        }
+
+        button {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d83a54;
+        }
+
+        .contract-id {
+            font-size: 13px;
+            color: #888;
+            margin-top: 30px;
+            padding: 10px;
+            background: #1a1a2e;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🏆 Brankas Pokémon (Stellar Testnet)</h1>
+        <p>Status: <strong style="color: #4cd137;">🟢 Terkoneksi ke Blockchain</strong></p>
+
+        <h2 style="margin-top: 30px;">Total Kartu di Brankas: <span id="total_kartu">0</span></h2>
+
+        <button onclick="alert('Memanggil Smart Contract di Testnet...')">+ Masukkan Hasil Brewek</button>
+        <button onclick="alert('Mengambil data dari Ledger Stellar...')">Intip Isi Brankas</button>
+
+        <div class="contract-id">
+            <strong>Contract ID:</strong> CCHMKL4BC7XA6GRCJJNG6BKHZBV4GB342LJSBLFW2D63I77FLEVIG27B
+        </div>
+    </div>
+</body>
+
+</html>
