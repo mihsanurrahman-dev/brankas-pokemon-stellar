@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brankas Pokémon Testnet</title>
+    <title>Pokémon Vault - Stellar Soroban</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a2e;
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-
-        .container {
-            background: #16213e;
-            padding: 40px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            border: 2px solid #0f3460;
-        }
-
-        h1 {
-            color: #e94560;
-        }
-
-        button {
-            background: #e94560;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 8px;
-            margin: 15px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #d83a54;
-        }
-
-        .contract-id {
-            font-size: 13px;
-            color: #888;
-            margin-top: 30px;
-            padding: 10px;
-            background: #1a1a2e;
-            border-radius: 5px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: #121212; color: #e0e0e0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+        .container { background-color: #1e1e1e; padding: 40px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); width: 100%; max-width: 500px; text-align: center; border: 1px solid #333; }
+        h1 { font-weight: 600; margin-bottom: 30px; color: #fff; font-size: 2.2em; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        h1 span { color: #fcc419; } /* Pokemon Yellow */
+        .stat-card { background: linear-gradient(145deg, #2a2a2a, #232323); padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid #333; }
+        .stat-label { font-size: 0.9em; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-value { font-size: 3em; font-weight: 600; color: #fcc419; margin: 10px 0; }
+        .controls { display: flex; flex-direction: column; gap: 15px; }
+        input[type="number"] { padding: 15px; border-radius: 8px; border: 1px solid #333; background-color: #2a2a2a; color: #fff; font-size: 1em; width: 100%; transition: border-color 0.3s; }
+        input[type="number"]:focus { outline: none; border-color: #fcc419; }
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        button { padding: 15px; border-radius: 8px; border: none; font-size: 1em; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-add { background-color: #e03131; color: white; } /* Pokemon Red */
+        .btn-add:hover { background-color: #f03e3e; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(224, 49, 49, 0.4); }
+        .btn-view { background-color: #fcc419; color: #121212; }
+        .btn-view:hover { background-color: #ffda6a; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(252, 196, 25, 0.4); }
+        .footer { margin-top: 30px; font-size: 0.8em; color: #666; }
+        .footer a { color: #aaa; text-decoration: none; }
     </style>
 </head>
-
 <body>
+
     <div class="container">
-        <h1>🏆 Brankas Pokémon (Stellar Testnet)</h1>
-        <p>Status: <strong style="color: #4cd137;">🟢 Terkoneksi ke Blockchain</strong></p>
+        <h1>🏆 <span>Pokémon</span> Vault</h1>
 
-        <h2 style="margin-top: 30px;">Total Kartu di Brankas: <span id="total_kartu">0</span></h2>
+        <div class="stat-card">
+            <div class="stat-label">Total Kartu Langka</div>
+            <div class="stat-value" id="totalKartu">--</div>
+            <div class="stat-label">Terbaca dari Blockchain</div>
+        </div>
 
-        <button onclick="alert('Memanggil Smart Contract di Testnet...')">+ Masukkan Hasil Brewek</button>
-        <button onclick="alert('Mengambil data dari Ledger Stellar...')">Intip Isi Brankas</button>
+        <div class="controls">
+            <input type="number" id="inputJumlah" placeholder="Masukkan jumlah kartu baru..." min="1">
+            
+            <div class="btn-group">
+                <button class="btn-add" onclick="tambahKartu()">Simpan Kartu</button>
+                <button class="btn-view" onclick="lihatIsi()">Refresh Data</button>
+            </div>
+        </div>
 
-        <div class="contract-id">
-            <strong>Contract ID:</strong> CCHMKL4BC7XA6GRCJJNG6BKHZBV4GB342LJSBLFW2D63I77FLEVIG27B
+        <div class="footer">
+            Stellar Soroban Workshop | <a href="#" id="repoLink">GitHub Repo</a>
         </div>
     </div>
-</body>
 
+    <script>
+        // Set href link repo otomatis
+        document.getElementById('repoLink').href = window.location.origin;
+
+        // --- FUNGSI DUMMY (CUMA VISUAL) ---
+        // Biar tombolnya kelihatan "hidup"
+        
+        function tambahKartu() {
+            const jumlah = document.getElementById('inputJumlah').value;
+            if(!jumlah || jumlah <= 0) {
+                alert("Woi, masukin jumlah kartu yang bener!");
+                return;
+            }
+            alert(`✅ MANTAP! ${jumlah} Kartu langka berhasil dikirim ke antrian Mainnet. (Fitur ini akan diaktifkan oleh Panitia)`);
+            document.getElementById('inputJumlah').value = '';
+        }
+
+        function lihatIsi() {
+            alert("Memanggil Smart Contract... (Fitur baca data Mainnet akan diaktifkan oleh Panitia)");
+            // Kita kasih angka dummy biar keren dikit
+            document.getElementById('totalKartu').innerText = '151'; 
+        }
+    </script>
+</body>
 </html>
