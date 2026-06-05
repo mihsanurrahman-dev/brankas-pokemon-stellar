@@ -15,7 +15,7 @@
 
 ## 🚀 Deployment Details
 - **Network:** Stellar Testnet
-- **Contract ID:** 
+- **Contract ID:** CC6D6ZRL6HAR3DIDI4VNAUDUNZF77EHCJ3DLH4RE2R2VJKZ4KMQX6RUE
 
 ## Frontend Screenshot
 <img width="916" height="882" alt="image" src="https://github.com/user-attachments/assets/06db514d-17e2-4502-9799-cb307e6b1363" />
