@@ -14,7 +14,7 @@
 - `lihat_isi`: Retrieve the exact total number of cards currently stored.
 
 ## 🚀 Deployment Details
-- **Network:** Stellar Testnet
+- **Network:** Stellar Mainnet
 - **Contract ID:** CC6D6ZRL6HAR3DIDI4VNAUDUNZF77EHCJ3DLH4RE2R2VJKZ4KMQX6RUE
 
 ## Frontend Screenshot
